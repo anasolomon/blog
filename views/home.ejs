@@ -4,4 +4,12 @@
 
 <p><%= homeContent %></p>
 
+<% for (let i = 0; i < htmlArray.length; i++) { %>
+   <% const currentPost = htmlArray[i]; %>
+         <h1><%= currentPost.title %></h1>
+         <p class="truncate"><%= currentPost.body.substring(0, 100) + "..." %>
+         <a class="test" href='/posts/<%=currentPost.title%>'>Read More</a>
+      </p>
+ <% } %>
+
 <%- include('partials/footer'); -%>

@@ -13,30 +13,47 @@ app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
 
+const postArray = [];
 
 app.get("/", function(req, res){
-  res.render("home", {homeContent: homeStartingContent});
+
+  res.render("home", {homeContent: homeStartingContent, htmlArray: postArray});
 });
+
 
 app.get("/about", function(req, res){
   res.render("about", {aboutContent: aboutStartingContent});
 });
 
+
 app.get("/contact", function(req, res){
   res.render("contact", {contactContent: contactStartingContent});
 });
+
+
+
 app.get("/compose", function(req, res){
   res.render("compose");
 });
+
 app.post("/compose", function(req,res){
-  const newComposed = req.body.newCompose;
-  console.log(newComposed);
+  const post = {
+    title: req.body.postTitle,
+    body: req.body.postBody
+  };
+
+  postArray.push(post);
+  res.redirect("/");
 });
 
 
-
-
-
+app.get("/posts/:postName", function(req, res){
+  for (let i = 0; i < postArray.length; i++) {
+  if(req.params.postName == postArray[i].title){
+    res.render("posts", {storedTitle: postArray[i].title, storedBody: postArray[i].body});
+   };
+ };
+});
 
 
 
