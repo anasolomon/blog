@@ -1,5 +1,6 @@
 [Process](#Process)  
-[Learned](#Learned)
+[Learned](#Learned)  
+[Screenshots](#screenshots)
 
 
 ### Process
@@ -11,7 +12,7 @@ const ejs = require("ejs");
 ```
 will be using *express* for this app.js server and touch user input from a form with *bodyParser* and apply tiny scriptlets into the html with *ejs*  
 
-I've created the app.get for the root route, about, contact and lastly for compose which also has an app.post because inside of it I have created a form:
+I've created the app.get for the root route, about, contact and lastly compose which has an `app.post` because inside of compose I have created a form:
 ```html
 <form action="/compose" method="POST">
     <div class="form-group">
@@ -24,7 +25,7 @@ I've created the app.get for the root route, about, contact and lastly for compo
 </form>
 ```
 
-I'm storing the data from "postTitle" and "postBody" inside of an object called 'post' which is inside of an array called 'postArray':
+I'm storing the data from "`postTitle`" and "`postBody`" inside of an **object** called '*post*' which is inside of an *array* called '*postArray*':
 ```js
 const postArray = [];
 app.post("/compose", function(req,res){
@@ -37,7 +38,7 @@ app.post("/compose", function(req,res){
   res.redirect("/");
 });
 ```
-Every the two items from the object post get pushed into the array postArray. Now I want to display both key values into my root route page by using some EJS:
+The two items from the object post get pushed into the array 'postArray' everytime. Now I want to display both of these key values (title and body) into my root route page by using some EJS:
 ```html
 <% for (let i = 0; i < htmlArray.length; i++) { %>
    <% const currentPost = htmlArray[i]; %>
@@ -45,9 +46,9 @@ Every the two items from the object post get pushed into the array postArray. No
          <p><%= currentPost.body %></p>
  <% } %>
  ```
- This will display the title inside of a h1 and the body in a paragraph.
+This will display the title inside of a h1 and the body in a paragraph.
 
-I made a new 'posts' ejs file inside of the views folder and will use it as my parameter pathing to the blog post's title 
+I made a new 'posts' ejs **file** inside of the views folder and will use it as my *parameter pathing* that ends with the name of the newly created title
 ```js
 app.get("/posts/:postName", function(req, res){
   for (let i = 0; i < postArray.length; i++) {
@@ -57,7 +58,9 @@ app.get("/posts/:postName", function(req, res){
  };
 });
 ```
-inside of the posts file I will use EJS to display the requested blog's title and message (body) of the matching title in the entered pathing. Or if user click on the 'Read More' anchor that I've added at the end of each newly created blog posts it will redirect them automatically to that new blog. 
+eg if I composed a new blog with title "Test" then I can access it in this pathing : `http://localhost:3000/posts/Test`  
+
+Inside of the posts file I will use EJS to display the blog's title in the pathing and message (body). Or if user click on the 'Read More' anchor that I've added at the end of each blog posts it will redirect them automatically to that new blog. 
 ```html
 <% for (let i = 0; i < htmlArray.length; i++) { %>
    <% const currentPost = htmlArray[i]; %>
@@ -67,9 +70,6 @@ inside of the posts file I will use EJS to display the requested blog's title an
       </p>
  <% } %>
 ```
-
-
-
 
 
 
@@ -113,3 +113,13 @@ If you are using EJS to display a text then you can integrate a little bit of Ja
          <p class="truncate"><%= currentPost.body.substring(0, 100) + "..." %></p>
  <% } %>
 ```
+
+### Screenshots
+
+`localhost:3000`
+![](https://media.discordapp.net/attachments/1039676646325764231/1133078944439079052/Screenshot_2023-07-24_at_11-49-12_Daily_Journal.png?width=1346&height=753) 
+After we've composed a blog post in `localhost:3000/compose`
+![](https://media.discordapp.net/attachments/1039676646325764231/1133078944191619103/Screenshot_2023-07-24_at_11-49-46_Daily_Journal.png?width=1346&height=753) 
+We access that blog post in 
+`localhost:3000/posts/Test`
+![](https://media.discordapp.net/attachments/1039676646325764231/1133078944699129906/Screenshot_2023-07-24_at_11-49-56_Daily_Journal.png?width=1346&height=753) 
