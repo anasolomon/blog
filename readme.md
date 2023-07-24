@@ -1,5 +1,5 @@
-[Process](#Process)  
-[Learned](#Learned)  
+[Process](#process)  
+[Learned](#learned)  
 [Screenshots](#screenshots)
 
 
