@@ -1,7 +1,12 @@
+<<<<<<< HEAD
 [Process](#Process)  
  - [Connecting to a Database](#connecting-to-a-database)    
 
 [Learned](#Learned)  
+=======
+[Process](#process)  
+[Learned](#learned)  
+>>>>>>> 9d28225d90a8ed3912f13d83ab6cf36c1e31031d
 [Screenshots](#screenshots)
 
 
