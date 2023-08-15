@@ -1,15 +1,20 @@
 <%- include('partials/header'); -%>
 
-<h1>Home</h1>
+   <h1>Home</h1>
 
-<p><%= homeContent %></p>
+   <p>
+      <%= homeContent %>
+   </p>
 
-<% for (let i = 0; i < htmlArray.length; i++) { %>
-   <% const currentPost = htmlArray[i]; %>
-         <h1><%= currentPost.title %></h1>
-         <p class="truncate"><%= currentPost.body.substring(0, 100) + "..." %>
-         <a class="test" href='/posts/<%=currentPost.title%>'>Read More</a>
-      </p>
- <% } %>
+   <% for (let i=0; i < htmlArray.length; i++) { %>
+      <% const currentPost=htmlArray[i]; %>
+         <h1>
+            <%= currentPost.title %>
+         </h1>
+         <p class="truncate">
+            <%= currentPost.body.substring(0, 100) + "..." %>
+               <a class="test" href='/posts/<%=currentPost._id%>'>Read More</a>
+         </p>
+         <% } %>
 
-<%- include('partials/footer'); -%>
+            <%- include('partials/footer'); -%>
