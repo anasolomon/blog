@@ -171,7 +171,8 @@ If you are using EJS to display a text then you can integrate a little bit of Ja
  <% } %>
 ```
 
-You can pass in a dynamic route not just manually by writting it in the URL by hand but also by redirecting towards it with a href and a dynamic value as the link `app.get("/posts/:postNameId",` `<a class="test" href='/posts/<%=currentPost._id%>'>Read More</a>`
+You can pass in a dynamic route not just manually by writting it in the URL by hand but also by redirecting towards it with a href and a dynamic value as the link `app.get("/posts/:postNameId",` `<a class="test" href='/posts/<%=currentPost._id%>'>Read More</a>`  
+The last line of code also gives each printed document's data a unique href that equals to their ids.  
 
 ### Screenshots
 
