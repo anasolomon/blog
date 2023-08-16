@@ -1,8 +1,7 @@
 [Process](#Process)  
  - [Connecting to a Database](#connecting-to-a-database)    
 
-[Learned](#Learned)  
-[Learned](#learned)  
+[Learned](#Learned)   
 [Screenshots](#screenshots)
 
 
